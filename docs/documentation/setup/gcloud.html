@@ -1,0 +1,73 @@
+---
+layout: documentation
+title: Malloy Documentation
+footer: /generated/footers/setup/gcloud.html
+---
+
+<div class="document">
+      <h1>
+        <a id="setting-up-malloy-in-google-cloud-ide" class="header-link anchor" href="#setting-up-malloy-in-google-cloud-ide">
+          Setting up Malloy in Google Cloud IDE
+        </a>
+      </h1>
+    <p>Google Cloud customers have access to a built in integrated development environment (IDE).  Malloy in its various forms can run in this environment access data in BigQuery, Postgres or DuckDB.  Running Malloy here only takes a few clicks.</p>
+
+      <h2>
+        <a id="1-launch-the-google-cloud-shell" class="header-link anchor" href="#1-launch-the-google-cloud-shell">
+          1) Launch the Google Cloud Shell
+        </a>
+      </h2>
+    <p>Goto <a href="https://shell.cloud.google.com">https://shell.cloud.google.com</a></p>
+
+      <h2>
+        <a id="2-install-malloy-extension-examples-and-composer" class="header-link anchor" href="#2-install-malloy-extension-examples-and-composer">
+          2) Install Malloy Extension, Examples and Composer
+        </a>
+      </h2>
+    <p>The command below will install Malloy into your cloud shell account.  Run the following command and replace [PROJECT_ID] with a project where you have permissions to run BigQuery queries (if you open a BigQuery console, you should see the project name on the top line).</p>
+<pre class="language-txt" style="background-color: #FBFBFB"><span class="line"><span style="color: #000000">curl -sL \</span></span>
+<span class="line"><span style="color: #000000">  https://github.com/malloydata/malloy/raw/main/scripts/cloud/update_malloy.sh \</span></span>
+<span class="line"><span style="color: #000000">  | bash -s [PROJECT_ID]</span></span>
+<span class="line"><span style="color: #000000"></span></span></pre>
+      <h2>
+        <a id="3-open-the-cloud-shell-editor" class="header-link anchor" href="#3-open-the-cloud-shell-editor">
+          3) Open the Cloud Shell Editor
+        </a>
+      </h2>
+    <p>Goto <a href="https://ide.cloud.google.com">https://ide.cloud.google.com</a> and open your "Home Workspace".</p>
+<img src="{{site.baseurl}}/img/setup_ide_home.png"><p>You should see the directory 'Malloy Samples'.</p>
+
+      <h2>
+        <a id="4-verify-that-bigquery-connects-correctly-" class="header-link anchor" href="#4-verify-that-bigquery-connects-correctly-">
+          4) Verify that BigQuery connects correctly.
+        </a>
+      </h2>
+    <p>In the IDE Editor open malloy-samples/bigquery/faa/airports.malloy and scroll down click the 'Run' code lens above one of the queries.  You should see query results.</p>
+<img src="{{site.baseurl}}/img/setup_ide_run.png">
+      <h2>
+        <a id="to-change-the-project-for-malloy-ide" class="header-link anchor" href="#to-change-the-project-for-malloy-ide">
+          To Change the Project for Malloy IDE
+        </a>
+      </h2>
+    <p>Open the settings by clicking the lower-left corner gear icon, search for "project," and enter the project ID for Cloudshell:Project</p>
+<img src="{{site.baseurl}}/img/setup_ide_project.png">
+      <h2>
+        <a id="running-malloy-composer" class="header-link anchor" href="#running-malloy-composer">
+          Running Malloy Composer
+        </a>
+      </h2>
+    <ol>
+<li><p>Open a terminal (either in the IDE or shell).</p>
+</li>
+<li><p>Make sure your project is set.</p>
+</li></ol>
+<pre class="language-txt" style="background-color: #FBFBFB"><span class="line"><span style="color: #000000">gcloud config set project [PROJECT_ID]</span></span>
+<span class="line"><span style="color: #000000"></span></span></pre><ol start="3">
+<li><p>Launch Composer</p>
+</li></ol>
+<pre class="language-txt" style="background-color: #FBFBFB"><span class="line"><span style="color: #000000">cd ~</span></span>
+<span class="line"><span style="color: #000000">./composer -p 8080 malloy-samples/composer.json</span></span>
+<span class="line"><span style="color: #000000"></span></span></pre><ol start="4">
+<li><p>Open Malloy Composer in the browser.   Click the Preview Button in the IDE and select port 8080.</p>
+</li></ol>
+<img src="{{site.baseurl}}/img/setup_ide_preview2.png" style="height: 192px; width:396px;"></div>
